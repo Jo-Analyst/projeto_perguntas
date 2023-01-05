@@ -13,11 +13,11 @@ class _PerguntaAppState extends State<PerguntaApp> {
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ['Cachorro', "Gato", "Leão", "Papagaio"]
+      'respostas': ["Gato", "Leão", 'Cachorro', "Papagaio"]
     },
     {
       'texto': "Qual é o seu time favorito?",
-      "respostas": ['Cruzeiro', 'Real Madrid', 'Borussia Dortimund', "Milan"]
+      "respostas": ['Real Madrid', 'Cruzeiro', 'Borussia Dortimund', "Milan"]
     },
     {
       'texto': "Qual é o seu melhor amigo?",
@@ -25,15 +25,15 @@ class _PerguntaAppState extends State<PerguntaApp> {
     },
     {
       'texto': "Qual é a sua melhor amiga?",
-      'respostas': ['Elizabeth', 'Girlene', 'Nilza', 'Leila']
+      'respostas': ['Nilza', 'Elizabeth', 'Girlene', 'Leila']
     },
     {
       'texto': "Qual esporte favorito?",
-      'respostas': ['Futebol', 'Volei', "Handebol", 'Basquete']
+      'respostas': ['Volei', "Handebol", 'Basquete', 'Futebol']
     },
     {
       'texto': "Qual a sua primeira liguagem programação?",
-      'respostas': ["C#", "Javascript", "Python", 'Dart']
+      'respostas': ["Javascript", "Python", "C#", 'Dart']
     },
     {
       'texto': "Qual é o seu melhor instrutor",
@@ -76,7 +76,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   ...respostas.map((t) => Resposta(t, _responder)).toList(),
                 ],
               )
-            : null,
+            : const Center(
+                child: Text(
+                  "Parabéns",
+                  style: TextStyle(fontSize: 28),
+                ),
+              ),
       ),
     );
   }
@@ -86,6 +91,7 @@ class PerguntaApp extends StatefulWidget {
   const PerguntaApp({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PerguntaAppState createState() {
     return _PerguntaAppState();
   }
