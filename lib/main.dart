@@ -50,16 +50,21 @@ class _PerguntaAppState extends State<PerguntaApp> {
       },
       {
         'texto': "Qual é o seu melhor instrutor",
-        'respostas': ["Leonardo Leitão", "Danilo Aparecido", "Daniel Tapias Morales", 'Glauco Daniel e João Rangel']
+        'respostas': [
+          "Leonardo Leitão",
+          "Danilo Aparecido",
+          "Daniel Tapias Morales",
+          'Glauco Daniel e João Rangel'
+        ]
       }
     ];
 
-    List<Widget> respostas = [];
+    List respostas = perguntas[_perguntaSelecionada]['respostas'] as List;
+    // List<Widget> widget = respostas.map((t) => Resposta(t, _responder)).toList();
 
-    for (String textoRep
-        in perguntas[_perguntaSelecionada]['respostas'] as List) {
-      respostas.add(Resposta(textoRep, _responder));
-    }
+    // for (String textoRep in respostas ) {
+    //   widget.add(Resposta(textoRep, _responder));
+    // }
 
     return MaterialApp(
       home: Scaffold(
@@ -69,7 +74,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: [
             Questao(perguntas[_perguntaSelecionada]['texto'] as String),
-            ...respostas,
+            ...respostas.map((t) => Resposta(t, _responder)).toList(),
           ],
         ),
       ),
