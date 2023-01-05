@@ -20,14 +20,46 @@ class _PerguntaAppState extends State<PerguntaApp> {
   @override
   Widget build(BuildContext context) {
     final perguntas = [
-      'Qual é a sua cor favorita?',
-      'Qual é o seu animal favorito?',
-      "Qual é o seu time favorito?",
-      "Qual é o seu melhor amigo?",
-      "Qual é o seu robbie favorito?",
-      "Qual esporte favorito?",
-      "Qual a sua primeira liguagem programação?"
+      {
+        'texto': 'Qual é a sua cor favorita?',
+        'respostas': ['Lilás', 'Marron', 'Verde', 'Amarelo']
+      },
+      {
+        'texto': 'Qual é o seu animal favorito?',
+        'respostas': ['Cachorro', "Gato", "Leão", "Papagaio"]
+      },
+      {
+        'texto': "Qual é o seu time favorito?",
+        "respostas": ['Cruzeiro', 'Real Madrid', 'Borussia Dortimund', "Milan"]
+      },
+      {
+        'texto': "Qual é o seu melhor amigo?",
+        'respostas': ['Gerson', 'Fábio', 'Alessando', 'Jeremias']
+      },
+      {
+        'texto': "Qual é a sua melhor amiga?",
+        'respostas': ['Elizabeth', 'Girlene', 'Nilza', 'Leila']
+      },
+      {
+        'texto': "Qual esporte favorito?",
+        'respostas': ['Futebol', 'Volei', "Handebol", 'Basquete']
+      },
+      {
+        'texto': "Qual a sua primeira liguagem programação?",
+        'respostas': ["C#", "Javascript", "Python", 'Dart']
+      },
+      {
+        'texto': "Qual é o seu melhor instrutor",
+        'respostas': ["Leonardo Leitão", "Danilo Aparecido", "Daniel Tapias Morales", 'Glauco Daniel e João Rangel']
+      }
     ];
+
+    List<Widget> respostas = [];
+
+    for (String textoRep
+        in perguntas[_perguntaSelecionada]['respostas'] as List) {
+      respostas.add(Resposta(textoRep, _responder));
+    }
 
     return MaterialApp(
       home: Scaffold(
@@ -36,14 +68,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: [
-            Questao(perguntas[_perguntaSelecionada]),
-            Resposta("Resposta 1", _responder),
-            Resposta("Resposta 2", _responder),
-            Resposta("Resposta 3", _responder),
-            Resposta("Resposta 4", _responder),
-            Resposta("Resposta 5", _responder),
-            Resposta("Resposta 6", _responder),
-            Resposta("Resposta 7", _responder),
+            Questao(perguntas[_perguntaSelecionada]['texto'] as String),
+            ...respostas,
           ],
         ),
       ),
