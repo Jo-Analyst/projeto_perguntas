@@ -9,39 +9,74 @@ class _PerguntaAppState extends State<PerguntaApp> {
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Lilás', 'Marron', 'Verde', 'Amarelo']
+      'respostas': [
+        {'texto': 'Lilás', 'nota': 10},
+        {'texto': 'Amarelo', 'nota': 9},
+        {'texto': 'Verde', 'nota': 8},
+        {'texto': 'Marron', 'nota': 7},
+      ]
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ["Gato", "Leão", 'Cachorro', "Papagaio"]
+      'respostas': [
+        {'texto': "Gato", 'nota': 8},
+        {'texto': "Leão", 'nota': 9},
+        {'texto': 'Cachorro', 'nota': 10},
+        {'texto': "Papagaio", 'nota': 7},
+      ]
     },
     {
       'texto': "Qual é o seu time favorito?",
-      "respostas": ['Real Madrid', 'Cruzeiro', 'Borussia Dortimund', "Milan"]
+      "respostas": [
+        {'texto': 'Real Madrid', 'nota': 9},
+        {'texto': 'Cruzeiro', 'nota': 10},
+        {'texto': 'Borussia Dortimund', 'nota': 8},
+        {'texto': "Milan", 'nota': 7},
+      ]
     },
     {
       'texto': "Qual é o seu melhor amigo?",
-      'respostas': ['Gerson', 'Fábio', 'Alessando', 'Jeremias']
+      'respostas': [
+        {'texto': 'Gerson', 'nota': 10},
+        {'texto': 'Fábio', 'nota': 9},
+        {'texto': 'Alessando', 'nota': 8},
+        {'texto': 'Jeremias', 'nota': 7},
+      ]
     },
     {
       'texto': "Qual é a sua melhor amiga?",
-      'respostas': ['Nilza', 'Elizabeth', 'Girlene', 'Leila']
+      'respostas': [
+        {'texto': 'Nilza', 'nota': 6},
+        {'texto': 'Elizabeth', 'nota': 10},
+        {'texto': 'Girlene', 'nota': 9},
+        {'texto': 'Leila', 'nota': 5},
+      ]
     },
     {
       'texto': "Qual esporte favorito?",
-      'respostas': ['Volei', "Handebol", 'Basquete', 'Futebol']
+      'respostas': [
+        {'texto': 'Volei', 'nota': 7},
+        {'texto': "Handebol", 'nota': 9},
+        {'texto': 'Basquete', 'nota': 8},
+        {'texto': 'Futebol', 'nota': 10},
+      ]
     },
     {
       'texto': "Qual a sua primeira liguagem programação?",
-      'respostas': ["Javascript", "Python", "C#", 'Dart']
+      'respostas': [
+        {'texto': "Javascript", 'nota': 9},
+        {'texto': "Python", 'nota': 8},
+        {'texto': "C#", 'nota': 10},
+        {'texto': 'Dart', 'nota': 7},
+      ]
     },
     {
       'texto': "Qual é o seu melhor instrutor",
       'respostas': [
-        "Leonardo Leitão",
-        "Danilo Aparecido",
-        "Daniel Tapias Morales",
-        'Glauco Daniel e João Rangel'
+        {'texto': "Leonardo Leitão", 'nota': 9},
+        {'texto': "Danilo Aparecido", 'nota': 10},
+        {'texto': "Daniel Tapias Morales", 'nota': 8},
+        {'texto': 'Glauco Daniel e João Rangel', 'nota': 6},
       ]
     }
   ];
