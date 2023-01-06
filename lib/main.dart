@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './resposta.dart';
+import 'package:projeto_perguntas/questionario.dart';
+import './resultado.dart';
 
 void main() => runApp(const PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var _perguntaSelecionada = 0;
+  var _perguntasSelecionada = 0;
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
@@ -46,43 +46,31 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   ];
 
-  void _responder() {
-    if (temPerguntaSelecionada) {
+  void _quandoResponder() {
+    if (temperguntasSelecionada) {
       setState(() {
-        _perguntaSelecionada++;
+        _perguntasSelecionada++;
       });
     }
   }
 
-  bool get temPerguntaSelecionada {
-    return _perguntaSelecionada < _perguntas.length;
+  bool get temperguntasSelecionada {
+    return _perguntasSelecionada < _perguntas.length;
   }
 
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada
-        ? _perguntas[_perguntaSelecionada]['respostas'] as List<String>
-        : [];
-
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Perguntas'),
-        ),
-        body: temPerguntaSelecionada
-            ? Column(
-                children: [
-                  Questao(_perguntas[_perguntaSelecionada]['texto'] as String),
-                  ...respostas.map((t) => Resposta(t, _responder)).toList(),
-                ],
-              )
-            : const Center(
-                child: Text(
-                  "Parabéns",
-                  style: TextStyle(fontSize: 28),
-                ),
-              ),
-      ),
+          appBar: AppBar(
+            title: const Text('Perguntas'),
+          ),
+          body: temperguntasSelecionada
+              ? Questionario(
+                  perguntas: _perguntas,
+                  perguntasSelecionada: _perguntasSelecionada,
+                  quandoResponder: _quandoResponder)
+              : const Resultado('Parabéns')),
     );
   }
 }
