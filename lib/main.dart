@@ -5,92 +5,114 @@ import './resultado.dart';
 void main() => runApp(const PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var _perguntasSelecionada = 0;
+  var _perguntaSelecionada = 0;
+  var _pontuacaoTotal = 0;
+
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': [
-        {'texto': 'Lilás', 'nota': 10},
-        {'texto': 'Amarelo', 'nota': 9},
-        {'texto': 'Verde', 'nota': 8},
-        {'texto': 'Marron', 'nota': 7},
+        {'texto': 'Lilás', 'pontuacao': 10},
+        {'texto': 'Amarelo', 'pontuacao': 9},
+        {'texto': 'Verde', 'pontuacao': 7},
+        {'texto': 'Marron', 'pontuacao': 5},
       ]
     },
     {
       'texto': 'Qual é o seu animal favorito?',
       'respostas': [
-        {'texto': "Gato", 'nota': 8},
-        {'texto': "Leão", 'nota': 9},
-        {'texto': 'Cachorro', 'nota': 10},
-        {'texto': "Papagaio", 'nota': 7},
+        {'texto': "Gato", 'pontuacao': 7},
+        {'texto': "Leão", 'pontuacao': 9},
+        {'texto': 'Cachorro', 'pontuacao': 10},
+        {'texto': "Papagaio", 'pontuacao': 5},
+      ]
+    },
+    {
+      'texto': "Qual é a sua comida Favorita",
+      'respostas': [
+        {'texto': "Tropeiro", 'pontuacao': 9},
+        {'texto': "Arroz temperado", 'pontuacao': 7},
+        {'texto': "Fricassê", 'pontuacao': 10},
+        {'texto': 'Estrogonoff', 'pontuacao': 5},
+      ]
+    },
+    {
+      'texto': "Qual é a sua sobremesa Favorita",
+      'respostas': [
+        {'texto': "Pudim", 'pontuacao': 9},
+        {'texto': "Sorvete", 'pontuacao': 7},
+        {'texto': 'Iorgute', 'pontuacao': 5},
+        {'texto': "Pavê", 'pontuacao': 10},
       ]
     },
     {
       'texto': "Qual é o seu time favorito?",
       "respostas": [
-        {'texto': 'Real Madrid', 'nota': 9},
-        {'texto': 'Cruzeiro', 'nota': 10},
-        {'texto': 'Borussia Dortimund', 'nota': 8},
-        {'texto': "Milan", 'nota': 7},
+        {'texto': 'Real Madrid', 'pontuacao': 9},
+        {'texto': 'Cruzeiro', 'pontuacao': 10},
+        {'texto': 'Borussia Dortimund', 'pontuacao': 7},
+        {'texto': "Milan", 'pontuacao': 5},
       ]
     },
     {
       'texto': "Qual é o seu melhor amigo?",
       'respostas': [
-        {'texto': 'Gerson', 'nota': 10},
-        {'texto': 'Fábio', 'nota': 9},
-        {'texto': 'Alessando', 'nota': 8},
-        {'texto': 'Jeremias', 'nota': 7},
+        {'texto': 'Gerson', 'pontuacao': 10},
+        {'texto': 'Fábio', 'pontuacao': 9},
+        {'texto': 'Alessando', 'pontuacao': 7},
+        {'texto': 'Jeremias', 'pontuacao': 5},
       ]
     },
     {
       'texto': "Qual é a sua melhor amiga?",
       'respostas': [
-        {'texto': 'Nilza', 'nota': 6},
-        {'texto': 'Elizabeth', 'nota': 10},
-        {'texto': 'Girlene', 'nota': 9},
-        {'texto': 'Leila', 'nota': 5},
+        {'texto': 'Nilza', 'pontuacao': 7},
+        {'texto': 'Elizabeth', 'pontuacao': 10},
+        {'texto': 'Girlene', 'pontuacao': 9},
+        {'texto': 'Leila', 'pontuacao': 5},
       ]
     },
     {
       'texto': "Qual esporte favorito?",
       'respostas': [
-        {'texto': 'Volei', 'nota': 7},
-        {'texto': "Handebol", 'nota': 9},
-        {'texto': 'Basquete', 'nota': 8},
-        {'texto': 'Futebol', 'nota': 10},
+        {'texto': 'Volei', 'pontuacao': 5},
+        {'texto': "Handebol", 'pontuacao': 9},
+        {'texto': 'Basquete', 'pontuacao': 7},
+        {'texto': 'Futebol', 'pontuacao': 10},
       ]
     },
     {
       'texto': "Qual a sua primeira liguagem programação?",
       'respostas': [
-        {'texto': "Javascript", 'nota': 9},
-        {'texto': "Python", 'nota': 8},
-        {'texto': "C#", 'nota': 10},
-        {'texto': 'Dart', 'nota': 7},
+        {'texto': "Javascript", 'pontuacao': 9},
+        {'texto': "Python", 'pontuacao': 7},
+        {'texto': "C#", 'pontuacao': 10},
+        {'texto': 'Dart', 'pontuacao': 5},
       ]
     },
     {
       'texto': "Qual é o seu melhor instrutor",
       'respostas': [
-        {'texto': "Leonardo Leitão", 'nota': 9},
-        {'texto': "Danilo Aparecido", 'nota': 10},
-        {'texto': "Daniel Tapias Morales", 'nota': 8},
-        {'texto': 'Glauco Daniel e João Rangel', 'nota': 6},
+        {'texto': "Leonardo Leitão", 'pontuacao': 9},
+        {'texto': "Danilo Aparecido", 'pontuacao': 10},
+        {'texto': "Daniel Tapias Morales", 'pontuacao': 7},
+        {'texto': 'Glauco Daniel e João Rangel', 'pontuacao': 5},
       ]
     }
   ];
 
-  void _quandoResponder() {
-    if (temperguntasSelecionada) {
+  void _responder(int pontuacao) {
+    if (temperguntaSelecionada) {
       setState(() {
-        _perguntasSelecionada++;
+        _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
+    print(_pontuacaoTotal);
   }
 
-  bool get temperguntasSelecionada {
-    return _perguntasSelecionada < _perguntas.length;
+  bool get temperguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
   }
 
   @override
@@ -100,11 +122,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
           appBar: AppBar(
             title: const Text('Perguntas'),
           ),
-          body: temperguntasSelecionada
+          body: temperguntaSelecionada
               ? Questionario(
                   perguntas: _perguntas,
-                  perguntasSelecionada: _perguntasSelecionada,
-                  quandoResponder: _quandoResponder)
+                  perguntaSelecionada: _perguntaSelecionada,
+                  quandoResponder: _responder)
+              
               : const Resultado('Parabéns')),
     );
   }
