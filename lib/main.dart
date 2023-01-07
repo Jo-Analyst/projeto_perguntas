@@ -108,7 +108,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
         _pontuacaoTotal += pontuacao;
       });
     }
-    print(_pontuacaoTotal);
+  }
+
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
   }
 
   bool get temperguntaSelecionada {
@@ -127,8 +133,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   perguntas: _perguntas,
                   perguntaSelecionada: _perguntaSelecionada,
                   quandoResponder: _responder)
-              
-              : const Resultado('Parabéns')),
+              : Resultado(_pontuacaoTotal, _reiniciarQuestionario)),
     );
   }
 }
